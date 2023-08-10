@@ -144,3 +144,23 @@ let aaaaa = 'name';
 console.log(product['name']);
 console.log(product[aaaaa]);
 console.log(product.aaaaa); //product.aaaaa  === product['aaaaa'] === undefined
+
+// #############################
+// ###### 6.Property ShortHand
+// ############################
+/*
+{
+	username : <value in username variable>,
+	age : <value in age variable>
+}
+*/
+let username = 'Codecamp';
+let age = 15;
+
+// let USER = {
+//     username: username,
+//     age: age,
+// };
+let USER = { username, age };
+
+console.log(USER);
