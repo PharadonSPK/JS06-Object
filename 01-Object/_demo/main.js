@@ -101,13 +101,13 @@ delete employee.address.country;
 // ########## 4. Check key ?
 // ##########################
 
-const product = {
-    id: 227,
-    name: 'IPhone',
-    price: 50_000,
-    // discount: 0.05,
-    'is mobile': true,
-};
+// const product = {
+//     id: 227,
+//     name: 'IPhone',
+//     price: 50_000,
+//     // discount: 0.05,
+//     'is mobile': true,
+// };
 
 console.log(product.discount); // undefined
 
@@ -130,8 +130,18 @@ console.log(product.hasOwnProperty('discount'));
 // *** 2 ถ้าไม่ใช่ string ต้องเป็นตัวแปรที่เก็บ string // Computed key
 // Access key-value ผ่านชื่อตัวแปรได้
 
+const product = {
+    id: 227,
+    name: 'IPhone',
+    price: 50_000,
+    // discount: 0.05,
+    'is mobile': true,
+};
+
 console.log(product.id);
 console.log(product['id']);
+let key = 'id';
+console.log(product[key]);
 
 // console.log(product.is mobile) crash
 console.log(product['is mobile']);

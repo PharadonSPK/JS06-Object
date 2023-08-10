@@ -20,6 +20,7 @@ for (let key in user) {
     // 3rd : user[key] == user['age'] ==> 15
 
     console.log(user.key);
+    console.log('\n');
     // 1st : user.key == user['key'] ==> undefined
     // 2nd :  user.key == user['key'] ==> undefined
     // 3nd :  user.key == user['key'] ==> undefined
