@@ -12,10 +12,10 @@ let age = +prompt('Enter age'); // 60
 
 let USER = { username, age };
 /*
-	{
-		username : <value in username variable>,
-		age : <value in age variable>
-	}
+{
+	username : <value in username variable>,
+	age : <value in age variable>
+}
 */
 
 console.log(USER);
