@@ -147,18 +147,18 @@ const log = console.log;
 // JS Keyword : if,else, for, while, do, switch, this
 // Question : ทำอย่างไร method จะสามารถเข้าถึง property ของตัวเองได้
 
-const user = {
-    name: 'CODECAMP',
-    age: 15,
-    sayHi: function () {
-        console.log(`Hello ${this.name}`);
-    },
-    growOld: function () {
-        console.log(this);
-        // this == user , this.age == user.age
-        this.age++;
-    },
-};
+// const user = {
+//     name: 'CODECAMP',
+//     age: 15,
+//     sayHi: function () {
+//         console.log(`Hello ${this.name}`);
+//     },
+//     growOld: function () {
+//         console.log(this);
+//         // this == user , this.age == user.age
+//         this.age++;
+//     },
+// };
 
 // user.sayHi();
 // user.name = 'software park';
@@ -171,24 +171,93 @@ const user = {
 // Q : ค่าของ this ถูก Solve ตั้งแต่ตอนที่เขียน function รึเปล่า ?
 // A : ไม่
 // This == Dynamics Caller/Dynamics Context
-function dev(feature) {
-    console.log(`${feature} feature developed by ${this.name}`);
-}
 
-const programmer1 = {
-    name: 'John',
-    develop: dev,
-};
+// FN Declaration
 
-const programmer2 = {
-    name: 'Jane',
-    develop: dev,
-};
+// function dev(feature) {
+//     console.log(`${feature} feature developed by ${this.name}`);
+// }
+
+// const programmer1 = {
+//     name: 'John',
+//     develop: dev,
+// };
+
+// const programmer2 = {
+//     name: 'Jane',
+//     develop: dev,
+// };
+
+// FN ถูกเรียกที่ไหน
+// alert('hi'); // window.alert === this.alert
+
+// Window
+// this.alert();
 
 // A : this ถูก solve ตอนเรียกใช้ Method
 // Caller.method => this == Caller == Object before the dot
 
 // Checkpoint-1 : this == object ที่เรียกใช้ method
-programmer1.develop('Login');
-programmer1.develop('Cart');
-programmer2.develop('Register');
+
+// programmer1.develop('Login');
+// programmer1.develop('Cart');
+// programmer2.develop('Register');
+
+// let m = 'Hello';
+// function myMessage() {
+//     // let m = 'hi';
+//     console.log(m);
+// }
+
+// myMessage();
+
+// ##########################################
+// ########### 5. Execution Context == Caller
+// ##########################################
+
+// Global(Browser)  Context : window object
+// window.alert("I'm Global");
+// this.alert("I'm Global this");
+// alert("I'm execute in window");
+
+// FN Declaration จะทำให้ sayHi ไปติดใน windowObj
+// Hoisting
+function sayHi() {
+    console.log(this); // window
+}
+var a = 'm';
+
+// Execute Context = Window
+// window.sayHi();
+// this.sayHi();
+// sayHi();
+
+// Function Context
+var name = 'Codecamp';
+function sayHello() {
+    console.log(this.name);
+}
+
+// Window Caller
+sayHello();
+window.sayHello();
+
+const user = {
+    name: 'John',
+    say: sayHello,
+    scream: () => {
+        console.log(`scream by ${this.name}`);
+    },
+    srcm: function () {
+        console.log(`scream by ${this.name}`);
+    },
+};
+
+// user Caller
+user.say();
+// SUMMARY : this == Object Caller
+
+// Arrow ไม่มีความสามารถในการสร้าง Context
+// Loose Context => Chain to Window
+user.scream(); // dont use this keyword with arrow function
+user.srcm();
