@@ -261,3 +261,25 @@ user.say();
 // Loose Context => Chain to Window
 user.scream(); // dont use this keyword with arrow function
 user.srcm();
+
+// LAB
+
+// let calculator = {
+//     read() {
+//         this.x = +prompt('Enter num1'); // line276 : calculator.x = +prompt()
+//         this.y = +prompt('Enter num2'); // line276 : calculator.y = +prompt()
+//     },
+//     sum() {
+//         return this.x + this.y;
+//     },
+//     mul() {
+//         return this.x * this.y;
+//     },
+// };
+
+// log(calculator);
+
+// calculator.read();
+// log(calculator);
+// log(calculator.sum());
+// log(calculator.mul());
